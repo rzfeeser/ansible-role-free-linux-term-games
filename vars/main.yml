@@ -9,7 +9,10 @@ freegamesapt:
         - pacman4console
         - ninvaders
         - zangband
+        - bastet
+        - robotfindskitten
 
 freegamesyum:
         - moon-buggy
         - nudoku
+        - bastet
