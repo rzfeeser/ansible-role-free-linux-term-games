@@ -1,38 +1,76 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+ansible-role-free-linux-term-games
+
+Ever feel like you just need to take 10 and play some games? I sure do! This role installs (or removes) a wide assortment of free linux terminal games. In this case, 'terminal games' means games that do not have a dependency on a GUI.
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role depends on access to the apt (Debian / Ubuntu) or yum (Redhat / Centos) package installer on the host that Ansible is configuring.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+absentorpresent: present (or absent)
+    - This variable is mapped within vars/main.yml and is set to a default of present. To uninstall all games, simply add "-e absentorpresent=absent" to the end of your ansible-playbook command.
+
+freegamesapt: []
+    - a list of games available within the aptitude repository
+
+freegamesyum: []
+    - a delicious list of games available within the yum repository
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+There are no additional dependencies for this role.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+To install games on your remote hosts, run a playbook such as the one below:
 
-    - hosts: servers
+    - name: "Make some free linux terminal games {{ absentorpresent }}"
+      hosts: localhost
+
       roles:
-         - { role: username.rolename, x: 42 }
+           - ansible-role-free-linux-term-games
+
+To install games on your Ansible controller, run a playbook such as the one below:
+
+    - name: "Make some free linux terminal games {{ absentorpresent }}"
+      hosts: localhost
+      connection: local
+
+      roles:
+           - ansible-role-free-linux-term-games
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Author: Russell Zachary Feeser
+
+Contact:
+    email: rzfeeser@gmail.com
+
+Profession: Trainer and Consultant
+
+Available for:
+    - Ansible
+    - Ansible Module Design with Python
+    - Network Automation with Python and Ansible
+    - Python for API and API Design
+    - Python Basics
+    - OpenStack
+    - 5G
+    - 4G LTE
+    - IP Multimedia Subsystem
+    - Session Initiation Protocol
+    - Playing Minecraft and StarCraft II :p
