@@ -1,12 +1,16 @@
 ---
 # tasks file for ansible-role-free-linux-term-games
 #
-- name: Install or remove free linux terminal games with apt
-  apt:
-          state: "{{ absentorpresent }}"
-          name: "{{ freegames }}"
-  become: yes
+# determine platform to deploy on
+# Supported platforms:
+#   - debian
+#   - ubuntu
+#   - centos
 
-- name: add /usr/games to path if required
-  
-  when: "/usr/games" not in ...
+- name: Deploy on Debian or Ubuntu
+  include_tasks: deployonubuntu.yml
+  when: ansible_os_family == "Debian"
+
+- name: Deploy on Redhat or CentOS
+  include_tasks: deployonrh.yml
+  when: ansible_os_family == "RedHat"

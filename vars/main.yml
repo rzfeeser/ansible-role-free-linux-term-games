@@ -2,9 +2,14 @@
 # vars file for ansible-role-free-linux-term-games
 absentorpresent: present
 freegamesapt:
+        - nethack-console
         - moon-buggy
         - nudoku
         - greed
         - pacman4console
         - ninvaders
         - zangband
+
+freegamesyum:
+        - moon-buggy
+        - nudoku

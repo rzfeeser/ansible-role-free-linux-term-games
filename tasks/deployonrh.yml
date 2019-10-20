@@ -1,0 +1,17 @@
+---
+# tasks file for ansible-role-free-linux-term-games
+#
+- name: Install or remove free linux terminal games with yum
+  yum:
+          state: "{{ absentorpresent }}"
+          name: "{{ freegamesyum }}"
+          update_cache: yes
+  become: yes
+
+- name: add /usr/games to path if required
+  set_fact:
+          pathy: "{{ lookup('env','PATH') }}"
+
+- name: if required, augment the path var with /usr/games
+  command: "$PATH=PATH:/usr/games"
+  when: "'/usr/games' not in pathy"
