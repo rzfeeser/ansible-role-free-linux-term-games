@@ -1,0 +1,10 @@
+---
+# vars file for ansible-role-free-linux-term-games
+absentorpresent: present
+freegames:
+        - moon-buggy
+        - nudoku
+        - greed
+        - pacman4console
+        - ninvaders
+        - zangband

@@ -1,0 +1,12 @@
+---
+# tasks file for ansible-role-free-linux-term-games
+#
+- name: Install or remove free linux terminal games with apt
+  apt:
+          state: "{{ absentorpresent }}"
+          name: "{{ freegames }}"
+  become: yes
+
+- name: add /usr/games to path if required
+  
+  when: "/usr/games" not in ...
