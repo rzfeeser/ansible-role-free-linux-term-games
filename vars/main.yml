@@ -13,6 +13,6 @@ freegamesapt:
         - robotfindskitten
 
 freegamesyum:
+        - epel-release
         - moon-buggy
         - nudoku
-        - bastet
