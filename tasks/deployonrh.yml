@@ -14,5 +14,5 @@
           pathy: "{{ lookup('env','PATH') }}"
 
 - name: if required, augment the path var with /usr/games
-  shell: "$PATH=PATH:/usr/games"
+  shell: "PATH=$PATH:/usr/games"
   when: "'/usr/games' not in pathy"
