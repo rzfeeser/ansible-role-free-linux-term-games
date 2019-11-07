@@ -8,7 +8,7 @@
 #   - centos
 
 - name: Deploy on Debian or Ubuntu
-  include_tasks: deployonubuntu.yml
+  include_tasks: deployondebian.yml
   when: ansible_os_family == "Debian"
 
 - name: Deploy on Redhat or CentOS
